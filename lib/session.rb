@@ -4,6 +4,7 @@ class Session
   # find the cookie for this app
   # deserialize the cookie into a hash
   def initialize(req)
+    @req = req
   end
 
   def [](key)
