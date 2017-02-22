@@ -54,5 +54,13 @@ class ControllerBase
 
   # use this with the router to call action_name (:index, :show, :create...)
   def invoke_action(name)
+    ## ?? note why self? what's self?
+    ## self is the controller here, whatever controller is being used so
+    ## could be the cats controller because it inherits. why do we
+    ## use self here if we want to call it on the router?
+    self.send(name)
+    render name unless already_built_response?
+
+    nil
   end
 end
